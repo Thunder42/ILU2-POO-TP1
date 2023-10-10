@@ -92,7 +92,7 @@ public class Village {
 			int i = 0;
 			while (!fini && i < nbEtals) {
 				Etal etal = etals[i];
-				if (etal !=  null && etal.isEtalOccupe()) {
+				if (etal.isEtalOccupe()) {
 					message.append(etal.afficherEtal());
 					i++;
 				} else {
@@ -167,9 +167,15 @@ public class Village {
 	}
 	
 	 public String partirVendeur(Gaulois vendeur) {
-		 StringBuilder message = new StringBuilder("Le vendeur "+ vendeur.getNom() +" quitte son étal, ");
+		 StringBuilder message = new StringBuilder();
 		 Etal etalv = rechercherEtal(vendeur);
 		 message.append(etalv.libererEtal());
+		 return message.toString();
+	 }
+	 
+	 public String afficherMarche() {
+		 StringBuilder message = new StringBuilder();
+		 message.append(marche.afficherMarche());
 		 return message.toString();
 	 }
 }
